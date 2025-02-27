@@ -23,17 +23,16 @@ public class BasicAuthentication {
     public void setup() throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("browserVersion", "127");
-        Map<String, Object> ltOptions = new HashMap<>();
-        ltOptions.put("user", System.getenv("LT_USERNAME"));
-        ltOptions.put("accessKey", System.getenv("LT_ACCESS_KEY"));
-        ltOptions.put("build", "Selenium 4");
-        ltOptions.put("name", this.getClass().getName());
-        ltOptions.put("platformName", "Windows 10");
-        ltOptions.put("seCdp", true);
-        ltOptions.put("selenium_version", "4.23.0");
-        capabilities.setCapability("LT:Options", ltOptions);
+       ChromeOptions browserOptions = new ChromeOptions();
+browserOptions.setPlatformName("Windows 10");
+browserOptions.setBrowserVersion("133");
+HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+ltOptions.put("username", "priyabalu1505");
+ltOptions.put("accessKey", "LT_1x8GYYVanifFWOMVMU17jeCne4LfVjFwfwXQR5vAEmxwH4J");
+ltOptions.put("project", "Untitled");
+ltOptions.put("selenium_version", "4.0.0");
+ltOptions.put("w3c", true);
+browserOptions.setCapability("LT:Options", ltOptions);
 
         driver = new RemoteWebDriver(new URL(hubURL), capabilities);
         System.out.println(driver);
